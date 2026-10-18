@@ -1,0 +1,68 @@
+@ChurchYouthAttendance.API_HostAddress = http://localhost:5266
+
+### 1. جلب خيارات أيام الجمعة فقط للفلتر (أهم endpoint لفلتر الخدام)
+GET {{ChurchYouthAttendance.API_HostAddress}}/api/meetings/friday-options?count=12
+Accept: application/json
+
+### 2. جلب أو فتح اجتماع لجمعة محددة عند اختيارها من الفلتر
+POST {{ChurchYouthAttendance.API_HostAddress}}/api/meetings/get-or-create-by-date?date=2026-10-16
+Accept: application/json
+
+### 3. جلب كشف الغياب المانيوال للاجتماع (مقسم دفعات وحساب الحضور والغياب)
+GET {{ChurchYouthAttendance.API_HostAddress}}/api/attendance/meeting/1/manual-sheet
+Accept: application/json
+
+### 4. تسجيل حضور مانيوال لشاب
+POST {{ChurchYouthAttendance.API_HostAddress}}/api/attendance
+Content-Type: application/json
+
+{
+  "studentId": 1,
+  "meetingId": 1,
+  "servantId": 1,
+  "method": 1,
+  "notes": "حضور يدوي من الكشف"
+}
+
+### 5. تسجيل حضور بمسح كود الـ QR
+POST {{ChurchYouthAttendance.API_HostAddress}}/api/attendance/scan-qr
+Content-Type: application/json
+
+{
+  "qrCodeData": "STU_1_SEC_CODE",
+  "meetingId": 1,
+  "servantId": 1
+}
+
+### 6. إلغاء حضور شاب
+DELETE {{ChurchYouthAttendance.API_HostAddress}}/api/attendance/1/1?servantId=1
+Accept: application/json
+
+### 7. بحث في كشف الاجتماع بالاسم أو الموبايل
+GET {{ChurchYouthAttendance.API_HostAddress}}/api/attendance/meeting/1/search?q=مينا
+Accept: application/json
+
+### 8. فتح أو قفل تسجيل الحضور للاجتماع
+PUT {{ChurchYouthAttendance.API_HostAddress}}/api/meetings/1/toggle-status
+Accept: application/json
+
+### 9. تسجيل الدخول
+POST {{ChurchYouthAttendance.API_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "phoneNumber": "01234567890",
+  "password": "Password123"
+}
+
+### 10. استرجاع مقترحات أسماء الشباب للتسجيل الذاتي
+GET {{ChurchYouthAttendance.API_HostAddress}}/api/auth/lookup-students?academicYear=1&gender=1&query=كيرلس
+Accept: application/json
+
+### 11. كشف شباب فصل الخادم
+GET {{ChurchYouthAttendance.API_HostAddress}}/api/students/my-class?academicYear=1
+Accept: application/json
+
+### 12. كشف الافتقاد للغائبين
+GET {{ChurchYouthAttendance.API_HostAddress}}/api/followup/missing?academicYear=1&minConsecutiveAbsences=2
+Accept: application/json

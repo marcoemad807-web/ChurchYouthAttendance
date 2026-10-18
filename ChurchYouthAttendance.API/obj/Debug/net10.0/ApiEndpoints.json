@@ -1,0 +1,661 @@
+[
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AnnouncementsController",
+    "Method": "CreateAnnouncement",
+    "RelativePath": "api/Announcements",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Announcement.CreateAnnouncementRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AnnouncementsController",
+    "Method": "UpdateDeviceToken",
+    "RelativePath": "api/Announcements/device-token",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Announcement.UpdateDeviceTokenRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AnnouncementsController",
+    "Method": "GetStudentFeed",
+    "RelativePath": "api/Announcements/feed",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYear",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "limit",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AnnouncementsController",
+    "Method": "GetAllAnnouncements",
+    "RelativePath": "api/Announcements/history",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "limit",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AttendanceController",
+    "Method": "RecordAttendance",
+    "RelativePath": "api/Attendance",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Attendance.RecordAttendanceRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AttendanceController",
+    "Method": "RemoveAttendance",
+    "RelativePath": "api/Attendance/{meetingId}/{studentId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "meetingId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "studentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "servantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AttendanceController",
+    "Method": "GetManualAttendanceSheet",
+    "RelativePath": "api/Attendance/meeting/{meetingId}/manual-sheet",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "meetingId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AttendanceController",
+    "Method": "SearchStudents",
+    "RelativePath": "api/Attendance/meeting/{meetingId}/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "meetingId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "q",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AttendanceController",
+    "Method": "GetMeetingAttendanceByYear",
+    "RelativePath": "api/Attendance/meeting/{meetingId}/year/{academicYear}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "meetingId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "academicYear",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AttendanceController",
+    "Method": "GenerateReport",
+    "RelativePath": "api/Attendance/report",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Attendance.AttendanceReportRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AttendanceController",
+    "Method": "ScanQr",
+    "RelativePath": "api/Attendance/scan-qr",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Attendance.ScanQrAttendanceRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AuthController",
+    "Method": "AdminSetPassword",
+    "RelativePath": "api/Auth/admin/set-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Auth.AdminSetPasswordRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AuthController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/Auth/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Auth.ChangePasswordRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Auth.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AuthController",
+    "Method": "LookupStudents",
+    "RelativePath": "api/Auth/lookup-students",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYear",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "gender",
+        "Type": "ChurchYouthAttendance.Domain.Enum.UserGender",
+        "IsRequired": false
+      },
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.AuthController",
+    "Method": "RegisterStudent",
+    "RelativePath": "api/Auth/register-student",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Auth.StudentSelfRegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.FollowUpController",
+    "Method": "GetMissingStudents",
+    "RelativePath": "api/FollowUp/missing",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYear",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "gender",
+        "Type": "System.Nullable\u00601[[ChurchYouthAttendance.Domain.Enum.UserGender, ChurchYouthAttendance.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "minConsecutiveAbsences",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.FollowUpController",
+    "Method": "GetMissingStudentsForServant",
+    "RelativePath": "api/FollowUp/servant/{servantId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "servantId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "minConsecutiveAbsences",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.MeetingsController",
+    "Method": "GetAllMeetings",
+    "RelativePath": "api/Meetings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.MeetingsController",
+    "Method": "CreateMeeting",
+    "RelativePath": "api/Meetings",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Meeting.CreateMeetingRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.MeetingsController",
+    "Method": "ToggleMeetingStatus",
+    "RelativePath": "api/Meetings/{id}/toggle-status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.MeetingsController",
+    "Method": "GetCurrentOpenMeeting",
+    "RelativePath": "api/Meetings/current-open",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.MeetingsController",
+    "Method": "GetFridayOptions",
+    "RelativePath": "api/Meetings/friday-options",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "count",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "futureCount",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.MeetingsController",
+    "Method": "GetFridayMeetings",
+    "RelativePath": "api/Meetings/fridays",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.MeetingsController",
+    "Method": "GetOrCreateMeetingByDate",
+    "RelativePath": "api/Meetings/get-or-create-by-date",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "date",
+        "Type": "System.DateOnly",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.ServantsController",
+    "Method": "GetAllServants",
+    "RelativePath": "api/Servants",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.ServantsController",
+    "Method": "CreateServant",
+    "RelativePath": "api/Servants",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Servant.CreateServantRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.ServantsController",
+    "Method": "GetServantById",
+    "RelativePath": "api/Servants/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.ServantsController",
+    "Method": "UpdateServant",
+    "RelativePath": "api/Servants/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Servant.UpdateServantRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.ServantsController",
+    "Method": "DeleteServant",
+    "RelativePath": "api/Servants/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.StudentsController",
+    "Method": "GetAllStudents",
+    "RelativePath": "api/Students",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYear",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.StudentsController",
+    "Method": "CreateStudent",
+    "RelativePath": "api/Students",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Student.CreateStudentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.StudentsController",
+    "Method": "GetStudentById",
+    "RelativePath": "api/Students/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.StudentsController",
+    "Method": "UpdateStudent",
+    "RelativePath": "api/Students/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "ChurchYouthAttendance.Application.DTOs.Student.UpdateStudentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.StudentsController",
+    "Method": "DeleteStudent",
+    "RelativePath": "api/Students/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.StudentsController",
+    "Method": "GetQr",
+    "RelativePath": "api/Students/{id}/qr",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.StudentsController",
+    "Method": "RegenerateQr",
+    "RelativePath": "api/Students/{id}/regenerate-qr",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.StudentsController",
+    "Method": "GetAllClasses",
+    "RelativePath": "api/Students/all-classes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChurchYouthAttendance.API.Controllers.StudentsController",
+    "Method": "GetMyClass",
+    "RelativePath": "api/Students/my-class",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYear",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

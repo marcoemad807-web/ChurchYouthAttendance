@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ChurchYouthAttendance.API/ChurchYouthAttendance.API.csproj" />
+  <Project Path="ChurchYouthAttendance.Application/ChurchYouthAttendance.Application.csproj" />
+  <Project Path="ChurchYouthAttendance.Domain/ChurchYouthAttendance.Domain.csproj" />
+  <Project Path="ChurchYouthAttendance.Infrastructure/ChurchYouthAttendance.Infrastructure.csproj" />
+</Solution>

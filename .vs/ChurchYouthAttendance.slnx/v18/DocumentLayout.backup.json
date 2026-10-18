@@ -1,0 +1,265 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3A3A0527-38C9-C10B-4036-0AAE4670D167}|ChurchYouthAttendance.API\\ChurchYouthAttendance.API.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A3A0527-38C9-C10B-4036-0AAE4670D167}|ChurchYouthAttendance.API\\ChurchYouthAttendance.API.csproj|solutionrelative:churchyouthattendance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A3A0527-38C9-C10B-4036-0AAE4670D167}|ChurchYouthAttendance.API\\ChurchYouthAttendance.API.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3A3A0527-38C9-C10B-4036-0AAE4670D167}|ChurchYouthAttendance.API\\ChurchYouthAttendance.API.csproj|solutionrelative:churchyouthattendance.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A3A0527-38C9-C10B-4036-0AAE4670D167}|ChurchYouthAttendance.API\\ChurchYouthAttendance.API.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3A3A0527-38C9-C10B-4036-0AAE4670D167}|ChurchYouthAttendance.API\\ChurchYouthAttendance.API.csproj|solutionrelative:churchyouthattendance.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18094213-502E-E708-5780-BAF21A4F2FED}|ChurchYouthAttendance.Domain\\ChurchYouthAttendance.Domain.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.domain\\entities\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18094213-502E-E708-5780-BAF21A4F2FED}|ChurchYouthAttendance.Domain\\ChurchYouthAttendance.Domain.csproj|solutionrelative:churchyouthattendance.domain\\entities\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18094213-502E-E708-5780-BAF21A4F2FED}|ChurchYouthAttendance.Domain\\ChurchYouthAttendance.Domain.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18094213-502E-E708-5780-BAF21A4F2FED}|ChurchYouthAttendance.Domain\\ChurchYouthAttendance.Domain.csproj|solutionrelative:churchyouthattendance.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18094213-502E-E708-5780-BAF21A4F2FED}|ChurchYouthAttendance.Domain\\ChurchYouthAttendance.Domain.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.domain\\entities\\servant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18094213-502E-E708-5780-BAF21A4F2FED}|ChurchYouthAttendance.Domain\\ChurchYouthAttendance.Domain.csproj|solutionrelative:churchyouthattendance.domain\\entities\\servant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{559D7BFC-44DD-ED43-89F6-524474512E60}|ChurchYouthAttendance.Infrastructure\\ChurchYouthAttendance.Infrastructure.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.infrastructure\\data\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{559D7BFC-44DD-ED43-89F6-524474512E60}|ChurchYouthAttendance.Infrastructure\\ChurchYouthAttendance.Infrastructure.csproj|solutionrelative:churchyouthattendance.infrastructure\\data\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{025CD3D4-51A0-BD75-4C4E-26FDF786C034}|ChurchYouthAttendance.Application\\ChurchYouthAttendance.Application.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.application\\dtos\\servant\\servantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{025CD3D4-51A0-BD75-4C4E-26FDF786C034}|ChurchYouthAttendance.Application\\ChurchYouthAttendance.Application.csproj|solutionrelative:churchyouthattendance.application\\dtos\\servant\\servantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{025CD3D4-51A0-BD75-4C4E-26FDF786C034}|ChurchYouthAttendance.Application\\ChurchYouthAttendance.Application.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.application\\dtos\\servant\\createservantrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{025CD3D4-51A0-BD75-4C4E-26FDF786C034}|ChurchYouthAttendance.Application\\ChurchYouthAttendance.Application.csproj|solutionrelative:churchyouthattendance.application\\dtos\\servant\\createservantrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{025CD3D4-51A0-BD75-4C4E-26FDF786C034}|ChurchYouthAttendance.Application\\ChurchYouthAttendance.Application.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.application\\dtos\\servant\\updateservantrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{025CD3D4-51A0-BD75-4C4E-26FDF786C034}|ChurchYouthAttendance.Application\\ChurchYouthAttendance.Application.csproj|solutionrelative:churchyouthattendance.application\\dtos\\servant\\updateservantrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18094213-502E-E708-5780-BAF21A4F2FED}|ChurchYouthAttendance.Domain\\ChurchYouthAttendance.Domain.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.domain\\valueobjects\\phonenumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18094213-502E-E708-5780-BAF21A4F2FED}|ChurchYouthAttendance.Domain\\ChurchYouthAttendance.Domain.csproj|solutionrelative:churchyouthattendance.domain\\valueobjects\\phonenumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18094213-502E-E708-5780-BAF21A4F2FED}|ChurchYouthAttendance.Domain\\ChurchYouthAttendance.Domain.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.domain\\entities\\meeting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18094213-502E-E708-5780-BAF21A4F2FED}|ChurchYouthAttendance.Domain\\ChurchYouthAttendance.Domain.csproj|solutionrelative:churchyouthattendance.domain\\entities\\meeting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{559D7BFC-44DD-ED43-89F6-524474512E60}|ChurchYouthAttendance.Infrastructure\\ChurchYouthAttendance.Infrastructure.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.infrastructure\\migrations\\20261004180928_addseedingdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{559D7BFC-44DD-ED43-89F6-524474512E60}|ChurchYouthAttendance.Infrastructure\\ChurchYouthAttendance.Infrastructure.csproj|solutionrelative:churchyouthattendance.infrastructure\\migrations\\20261004180928_addseedingdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{559D7BFC-44DD-ED43-89F6-524474512E60}|ChurchYouthAttendance.Infrastructure\\ChurchYouthAttendance.Infrastructure.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.infrastructure\\migrations\\20261004175834_m3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{559D7BFC-44DD-ED43-89F6-524474512E60}|ChurchYouthAttendance.Infrastructure\\ChurchYouthAttendance.Infrastructure.csproj|solutionrelative:churchyouthattendance.infrastructure\\migrations\\20261004175834_m3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{559D7BFC-44DD-ED43-89F6-524474512E60}|ChurchYouthAttendance.Infrastructure\\ChurchYouthAttendance.Infrastructure.csproj|c:\\users\\omega\\source\\repos\\churchyouthattendance\\churchyouthattendance.infrastructure\\migrations\\20261004214059_addvalueobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{559D7BFC-44DD-ED43-89F6-524474512E60}|ChurchYouthAttendance.Infrastructure\\ChurchYouthAttendance.Infrastructure.csproj|solutionrelative:churchyouthattendance.infrastructure\\migrations\\20261004214059_addvalueobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.API\\Program.cs",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.API\\Program.cs",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.API\\Program.cs",
+              "RelativeToolTip": "ChurchYouthAttendance.API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T15:52:19.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.API\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "ChurchYouthAttendance.API\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-11T19:29:54.565Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.API\\appsettings.json",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.API\\appsettings.json",
+              "RelativeToolTip": "ChurchYouthAttendance.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-11T19:29:10.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Domain\\Entities\\Student.cs",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.Domain\\Entities\\Student.cs",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Domain\\Entities\\Student.cs",
+              "RelativeToolTip": "ChurchYouthAttendance.Domain\\Entities\\Student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-11T13:12:31.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Infrastructure\\Data\\Configurations\\UserConfiguration.cs",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.Infrastructure\\Data\\Configurations\\UserConfiguration.cs",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Infrastructure\\Data\\Configurations\\UserConfiguration.cs",
+              "RelativeToolTip": "ChurchYouthAttendance.Infrastructure\\Data\\Configurations\\UserConfiguration.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-11T13:09:46.524Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UpdateServantRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Application\\DTOs\\Servant\\UpdateServantRequest.cs",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.Application\\DTOs\\Servant\\UpdateServantRequest.cs",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Application\\DTOs\\Servant\\UpdateServantRequest.cs",
+              "RelativeToolTip": "ChurchYouthAttendance.Application\\DTOs\\Servant\\UpdateServantRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T23:50:44.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateServantRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Application\\DTOs\\Servant\\CreateServantRequest.cs",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.Application\\DTOs\\Servant\\CreateServantRequest.cs",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Application\\DTOs\\Servant\\CreateServantRequest.cs",
+              "RelativeToolTip": "ChurchYouthAttendance.Application\\DTOs\\Servant\\CreateServantRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T23:46:41.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ServantDto.cs",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Application\\DTOs\\Servant\\ServantDto.cs",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.Application\\DTOs\\Servant\\ServantDto.cs",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Application\\DTOs\\Servant\\ServantDto.cs",
+              "RelativeToolTip": "ChurchYouthAttendance.Application\\DTOs\\Servant\\ServantDto.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T23:44:56.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PhoneNumber.cs",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Domain\\ValueObjects\\PhoneNumber.cs",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.Domain\\ValueObjects\\PhoneNumber.cs",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Domain\\ValueObjects\\PhoneNumber.cs",
+              "RelativeToolTip": "ChurchYouthAttendance.Domain\\ValueObjects\\PhoneNumber.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAkAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T21:36:43.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.Domain\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "ChurchYouthAttendance.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAwwDkAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-20T22:15:27.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Servant.cs",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Domain\\Entities\\Servant.cs",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.Domain\\Entities\\Servant.cs",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Domain\\Entities\\Servant.cs",
+              "RelativeToolTip": "ChurchYouthAttendance.Domain\\Entities\\Servant.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAIwC4AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T13:57:31.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "20261004214059_AddValueObject.cs",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Infrastructure\\Migrations\\20261004214059_AddValueObject.cs",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.Infrastructure\\Migrations\\20261004214059_AddValueObject.cs",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Infrastructure\\Migrations\\20261004214059_AddValueObject.cs",
+              "RelativeToolTip": "ChurchYouthAttendance.Infrastructure\\Migrations\\20261004214059_AddValueObject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T21:40:59.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Meeting.cs",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Domain\\Entities\\Meeting.cs",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.Domain\\Entities\\Meeting.cs",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Domain\\Entities\\Meeting.cs",
+              "RelativeToolTip": "ChurchYouthAttendance.Domain\\Entities\\Meeting.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAwwAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-20T22:43:57.757Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "20261004180928_AddSeedingData.cs",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Infrastructure\\Migrations\\20261004180928_AddSeedingData.cs",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.Infrastructure\\Migrations\\20261004180928_AddSeedingData.cs",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Infrastructure\\Migrations\\20261004180928_AddSeedingData.cs",
+              "RelativeToolTip": "ChurchYouthAttendance.Infrastructure\\Migrations\\20261004180928_AddSeedingData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T18:09:28.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "20261004175834_M3.cs",
+              "DocumentMoniker": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Infrastructure\\Migrations\\20261004175834_M3.cs",
+              "RelativeDocumentMoniker": "ChurchYouthAttendance.Infrastructure\\Migrations\\20261004175834_M3.cs",
+              "ToolTip": "C:\\Users\\Omega\\source\\repos\\ChurchYouthAttendance\\ChurchYouthAttendance.Infrastructure\\Migrations\\20261004175834_M3.cs",
+              "RelativeToolTip": "ChurchYouthAttendance.Infrastructure\\Migrations\\20261004175834_M3.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T17:58:34.973Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
