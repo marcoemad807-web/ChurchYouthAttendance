@@ -1,4 +1,4 @@
-﻿using ChurchYouthAttendance.Application.Common.Interfaces;
+using ChurchYouthAttendance.Application.Common.Interfaces;
 using ChurchYouthAttendance.Application.Common.Security;
 using ChurchYouthAttendance.Application.DTOs.Auth;
 using ChurchYouthAttendance.Application.Interfaces;
@@ -55,6 +55,8 @@ namespace ChurchYouthAttendance.Application.Services
                     PhoneNumber = servant.PhoneNumber.Value,
                     Role = servant.Role,
                     AssignedAcademicYear = servant.AssignedAcademicYear,
+                    AssignedAcademicYears = servant.GetAssignedAcademicYearsList(),
+                    ClassGender = servant.ClassGender,
                     Token = GenerateToken(servant.Id, servant.Role.ToString(), servant.FullName)
                 };
             }

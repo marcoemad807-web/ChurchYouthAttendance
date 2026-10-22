@@ -1,4 +1,4 @@
-﻿using ChurchYouthAttendance.Application.Common.Interfaces;
+using ChurchYouthAttendance.Application.Common.Interfaces;
 using ChurchYouthAttendance.Application.Common.Security;
 using ChurchYouthAttendance.Application.DTOs.Servant;
 using ChurchYouthAttendance.Application.Interfaces;
@@ -58,18 +58,18 @@ namespace ChurchYouthAttendance.Application.Services
                 throw new ArgumentException("اسم أب الاعتراف مطلوب.", nameof(request.FatherOfConfession));
 
             if (!PhoneNumber.TryCreate(request.PhoneNumber, out var phoneVo, out var err))
-                throw new ArgumentException(err ?? "رقم الموبايل غير صالح.", nameof(request.PhoneNumber));
+                throw new ArgumentException(err ?? "رقم الموبايل غير صحيح.", nameof(request.PhoneNumber));
 
             if (string.IsNullOrWhiteSpace(request.Password) || request.Password.Length < 6)
                 throw new ArgumentException("كلمة المرور يجب ألا تقل عن 6 أحرف.", nameof(request.Password));
 
             var cleanUsername = request.Username.Trim().ToLower();
 
-            // فحص تفرد اسم المستخدم عبر النظام
+            // فحص عدم تكرار اسم المستخدم
             var usernameTaken = await _context.Servants.AnyAsync(s => s.Username.ToLower() == cleanUsername, cancellationToken)
                 || await _context.Students.AnyAsync(s => s.Username.ToLower() == cleanUsername, cancellationToken);
             if (usernameTaken)
-                throw new InvalidOperationException("اسم المستخدم محجوز بالفعل، يرجى اختيار اسم آخر.");
+                throw new InvalidOperationException("اسم المستخدم مسجل بالفعل، يرجى اختيار اسم آخر.");
 
             var cleanPhone = phoneVo!.Value;
             var exists = await _context.Servants
@@ -80,6 +80,15 @@ namespace ChurchYouthAttendance.Application.Services
 
             var passwordHash = _passwordHasher.HashPassword(request.Password);
 
+            var years = ExtractYears(request.AssignedAcademicYears, request.AssignedYears, request.AssignedAcademicYear);
+            if (request.Role == UserRole.Servant && years.Count == 0)
+            {
+                throw new ArgumentException("يجب تحديد دفعة واحدة على الأقل مسندة للخادم.", nameof(request.AssignedAcademicYears));
+            }
+
+            var yearsString = years.Count > 0 ? string.Join(",", years) : null;
+            var primaryYear = years.Count > 0 ? years[0] : (int?)null;
+
             var servant = new Servant(
                 request.FullName.Trim(),
                 cleanUsername,
@@ -89,7 +98,9 @@ namespace ChurchYouthAttendance.Application.Services
                 request.Gender,
                 request.FatherOfConfession.Trim(),
                 request.Role,
-                request.Role == UserRole.Admin ? null : request.AssignedAcademicYear
+                request.Role == UserRole.Admin ? null : primaryYear,
+                request.Role == UserRole.Admin ? 0 : request.ClassGender,
+                request.Role == UserRole.Admin ? null : yearsString
             );
 
             servant.PlainPassword = request.Password;
@@ -117,14 +128,14 @@ namespace ChurchYouthAttendance.Application.Services
                 throw new ArgumentException("اسم أب الاعتراف مطلوب.", nameof(request.FatherOfConfession));
 
             if (!PhoneNumber.TryCreate(request.PhoneNumber, out var phoneVo, out var err))
-                throw new ArgumentException(err ?? "رقم الموبايل غير صالح.", nameof(request.PhoneNumber));
+                throw new ArgumentException(err ?? "رقم الموبايل غير صحيح.", nameof(request.PhoneNumber));
 
             var cleanUsername = request.Username.Trim().ToLower();
 
             var usernameTaken = await _context.Servants.AnyAsync(s => s.Id != id && s.Username.ToLower() == cleanUsername, cancellationToken)
-                || await _context.Students.AnyAsync(s => s.Username.ToLower() == cleanUsername, cancellationToken);
+                || await _context.Students.AnyAsync(s => s.Id != id && s.Username.ToLower() == cleanUsername, cancellationToken);
             if (usernameTaken)
-                throw new InvalidOperationException("اسم المستخدم محجوز بالفعل، يرجى اختيار اسم آخر.");
+                throw new InvalidOperationException("اسم المستخدم مسجل بالفعل، يرجى اختيار اسم آخر.");
 
             var cleanPhone = phoneVo!.Value;
             var phoneTaken = await _context.Servants
@@ -139,7 +150,16 @@ namespace ChurchYouthAttendance.Application.Services
             servant.Gender = request.Gender;
             servant.FatherOfConfession = request.FatherOfConfession.Trim();
             servant.Role = request.Role;
-            servant.AssignedAcademicYear = request.Role == UserRole.Admin ? null : request.AssignedAcademicYear;
+
+            if (request.Role == UserRole.Admin)
+            {
+                servant.SetAssignedClasses(null, 0);
+            }
+            else
+            {
+                var years = ExtractYears(request.AssignedAcademicYears, request.AssignedYears, request.AssignedAcademicYear);
+                servant.SetAssignedClasses(years, request.ClassGender);
+            }
 
             await _context.SaveChangesAsync(cancellationToken);
 
@@ -159,6 +179,20 @@ namespace ChurchYouthAttendance.Application.Services
             return true;
         }
 
+        private static List<int> ExtractYears(List<int>? yearsList, string? yearsString, int? singleYear)
+        {
+            var result = yearsList?.Where(y => y > 0).Distinct().OrderBy(y => y).ToList() ?? new List<int>();
+            if (result.Count == 0 && !string.IsNullOrWhiteSpace(yearsString))
+            {
+                result = Servant.ParseAcademicYears(yearsString);
+            }
+            if (result.Count == 0 && singleYear.HasValue && singleYear.Value > 0)
+            {
+                result.Add(singleYear.Value);
+            }
+            return result;
+        }
+
         private static ServantDto MapToDto(Servant s) => new()
         {
             Id = s.Id,
@@ -170,6 +204,8 @@ namespace ChurchYouthAttendance.Application.Services
             FatherOfConfession = s.FatherOfConfession,
             Role = s.Role,
             AssignedAcademicYear = s.AssignedAcademicYear,
+            AssignedAcademicYears = s.GetAssignedAcademicYearsList(),
+            ClassGender = s.ClassGender,
             PlainPassword = s.PlainPassword,
             CreatedAt = s.CreatedAt
         };

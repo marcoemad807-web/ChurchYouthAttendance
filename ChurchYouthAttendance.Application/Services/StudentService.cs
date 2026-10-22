@@ -1,7 +1,8 @@
-﻿using ChurchYouthAttendance.Application.Common.Interfaces;
+using ChurchYouthAttendance.Application.Common.Interfaces;
 using ChurchYouthAttendance.Application.DTOs.Student;
 using ChurchYouthAttendance.Application.Interfaces;
 using ChurchYouthAttendance.Domain.Entities;
+using ChurchYouthAttendance.Domain.Enum;
 using ChurchYouthAttendance.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,12 +22,45 @@ namespace ChurchYouthAttendance.Application.Services
             _context = context;
         }
 
-        public async Task<List<StudentDto>> GetStudentsByYearAsync(int academicYear, CancellationToken cancellationToken = default)
+        public Task<List<StudentDto>> GetStudentsByYearAsync(int academicYear, CancellationToken cancellationToken = default)
+            => GetStudentsByYearAsync(academicYear, null, cancellationToken);
+
+        public async Task<List<StudentDto>> GetStudentsByYearAsync(int academicYear, UserGender? gender, CancellationToken cancellationToken = default)
         {
-            var students = await _context.Students
+            var query = _context.Students
                 .AsNoTracking()
-                .Where(s => s.AcademicYear == academicYear)
+                .Where(s => s.AcademicYear == academicYear);
+
+            if (gender.HasValue)
+            {
+                query = query.Where(s => s.Gender == gender.Value);
+            }
+
+            var students = await query
                 .OrderBy(s => s.FullName)
+                .ToListAsync(cancellationToken);
+
+            return students.Select(MapToDto).ToList();
+        }
+
+        public async Task<List<StudentDto>> GetStudentsByYearsAsync(IEnumerable<int> academicYears, UserGender? gender = null, CancellationToken cancellationToken = default)
+        {
+            var yearsList = academicYears?.Where(y => y > 0).Distinct().ToList() ?? new List<int>();
+            if (yearsList.Count == 0)
+                return new List<StudentDto>();
+
+            var query = _context.Students
+                .AsNoTracking()
+                .Where(s => yearsList.Contains(s.AcademicYear));
+
+            if (gender.HasValue)
+            {
+                query = query.Where(s => s.Gender == gender.Value);
+            }
+
+            var students = await query
+                .OrderBy(s => s.AcademicYear)
+                .ThenBy(s => s.FullName)
                 .ToListAsync(cancellationToken);
 
             return students.Select(MapToDto).ToList();
@@ -81,43 +115,54 @@ namespace ChurchYouthAttendance.Application.Services
             if (string.IsNullOrWhiteSpace(request.FullName))
                 throw new ArgumentException("اسم الشاب مطلوب.", nameof(request.FullName));
 
-            if (string.IsNullOrWhiteSpace(request.Username))
-                throw new ArgumentException("اسم المستخدم باللغة الإنجليزية مطلوب.", nameof(request.Username));
-
-            if (string.IsNullOrWhiteSpace(request.College))
-                throw new ArgumentException("اسم الكلية مطلوب.", nameof(request.College));
-
-            if (string.IsNullOrWhiteSpace(request.FatherOfConfession))
-                throw new ArgumentException("اسم أب الاعتراف مطلوب.", nameof(request.FatherOfConfession));
-
             if (!PhoneNumber.TryCreate(request.PhoneNumber, out var phoneVo, out var err))
                 throw new ArgumentException(err ?? "رقم الموبايل غير صالح.", nameof(request.PhoneNumber));
 
-            var cleanUsername = request.Username.Trim().ToLower();
-
-            // التحقق من تفرد اسم المستخدم عبر النظام
-            var usernameTaken = await _context.Students.AnyAsync(s => s.Username.ToLower() == cleanUsername, cancellationToken)
-                || await _context.Servants.AnyAsync(s => s.Username.ToLower() == cleanUsername, cancellationToken);
-            if (usernameTaken)
-                throw new InvalidOperationException("اسم المستخدم محجوز بالفعل، يرجى اختيار اسم آخر.");
+            var cleanPhone = phoneVo!.Value;
 
             // التأكد من عدم تكرار رقم الموبايل
-            var cleanPhone = phoneVo!.Value;
             var exists = await _context.Students
                 .AnyAsync(s => EF.Functions.Like((string)(object)s.PhoneNumber, $"%{cleanPhone}%"), cancellationToken);
 
             if (exists)
                 throw new InvalidOperationException("رقم الموبايل مسجل بالفعل لشاب آخر.");
 
+            // تحديد اسم المستخدم تلقائياً إن لم يقم الخادم بكتابته
+            string cleanUsername;
+            if (!string.IsNullOrWhiteSpace(request.Username))
+            {
+                cleanUsername = request.Username.Trim().ToLower();
+                var usernameTaken = await _context.Students.AnyAsync(s => s.Username.ToLower() == cleanUsername, cancellationToken)
+                    || await _context.Servants.AnyAsync(s => s.Username.ToLower() == cleanUsername, cancellationToken);
+                if (usernameTaken)
+                    throw new InvalidOperationException("اسم المستخدم محجوز بالفعل، يرجى اختيار اسم آخر.");
+            }
+            else
+            {
+                var digits = cleanPhone.Length >= 6 ? cleanPhone[^6..] : cleanPhone;
+                cleanUsername = $"u_{digits}";
+                int counter = 1;
+                while (await _context.Students.AnyAsync(s => s.Username.ToLower() == cleanUsername, cancellationToken)
+                    || await _context.Servants.AnyAsync(s => s.Username.ToLower() == cleanUsername, cancellationToken))
+                {
+                    cleanUsername = $"u_{digits}_{counter++}";
+                }
+            }
+
+            var college = string.IsNullOrWhiteSpace(request.College) ? "غير محدد" : request.College.Trim();
+            var fatherOfConfession = string.IsNullOrWhiteSpace(request.FatherOfConfession) ? "غير محدد" : request.FatherOfConfession.Trim();
+            var academicYear = request.AcademicYear > 0 ? request.AcademicYear : 1;
+            var dateOfBirth = request.DateOfBirth ?? new DateOnly(2005, 1, 1);
+
             var student = new Student(
                 request.FullName.Trim(),
                 cleanUsername,
                 phoneVo,
-                request.DateOfBirth,
+                dateOfBirth,
                 request.Gender,
-                request.FatherOfConfession.Trim(),
-                request.AcademicYear,
-                request.College.Trim()
+                fatherOfConfession,
+                academicYear,
+                college
             );
 
             _context.Students.Add(student);
@@ -137,25 +182,8 @@ namespace ChurchYouthAttendance.Application.Services
             if (string.IsNullOrWhiteSpace(request.FullName))
                 throw new ArgumentException("اسم الشاب مطلوب.", nameof(request.FullName));
 
-            if (string.IsNullOrWhiteSpace(request.Username))
-                throw new ArgumentException("اسم المستخدم باللغة الإنجليزية مطلوب.", nameof(request.Username));
-
-            if (string.IsNullOrWhiteSpace(request.College))
-                throw new ArgumentException("اسم الكلية مطلوب.", nameof(request.College));
-
-            if (string.IsNullOrWhiteSpace(request.FatherOfConfession))
-                throw new ArgumentException("اسم أب الاعتراف مطلوب.", nameof(request.FatherOfConfession));
-
             if (!PhoneNumber.TryCreate(request.PhoneNumber, out var phoneVo, out var err))
                 throw new ArgumentException(err ?? "رقم الموبايل غير صالح.", nameof(request.PhoneNumber));
-
-            var cleanUsername = request.Username.Trim().ToLower();
-
-            // التأكد من عدم تكرار اسم المستخدم مع أي مستخدم آخر
-            var usernameTaken = await _context.Students.AnyAsync(s => s.Id != id && s.Username.ToLower() == cleanUsername, cancellationToken)
-                || await _context.Servants.AnyAsync(s => s.Username.ToLower() == cleanUsername, cancellationToken);
-            if (usernameTaken)
-                throw new InvalidOperationException("اسم المستخدم محجوز بالفعل، يرجى اختيار اسم آخر.");
 
             // التأكد من عدم تكرار رقم الموبايل مع شاب آخر
             var cleanPhone = phoneVo!.Value;
@@ -164,14 +192,28 @@ namespace ChurchYouthAttendance.Application.Services
             if (phoneTaken)
                 throw new InvalidOperationException("رقم الموبايل مسجل بالفعل لشاب آخر.");
 
+            string cleanUsername = student.Username;
+            if (!string.IsNullOrWhiteSpace(request.Username))
+            {
+                cleanUsername = request.Username.Trim().ToLower();
+                var usernameTaken = await _context.Students.AnyAsync(s => s.Id != id && s.Username.ToLower() == cleanUsername, cancellationToken)
+                    || await _context.Servants.AnyAsync(s => s.Username.ToLower() == cleanUsername, cancellationToken);
+                if (usernameTaken)
+                    throw new InvalidOperationException("اسم المستخدم محجوز بالفعل، يرجى اختيار اسم آخر.");
+            }
+
             student.FullName = request.FullName.Trim();
             student.Username = cleanUsername;
             student.PhoneNumber = phoneVo!;
-            student.DateOfBirth = request.DateOfBirth;
+            if (request.DateOfBirth.HasValue)
+                student.DateOfBirth = request.DateOfBirth.Value;
             student.Gender = request.Gender;
-            student.FatherOfConfession = request.FatherOfConfession.Trim();
-            student.AcademicYear = request.AcademicYear;
-            student.College = request.College.Trim();
+            if (!string.IsNullOrWhiteSpace(request.FatherOfConfession))
+                student.FatherOfConfession = request.FatherOfConfession.Trim();
+            if (request.AcademicYear > 0)
+                student.AcademicYear = request.AcademicYear;
+            if (!string.IsNullOrWhiteSpace(request.College))
+                student.College = request.College.Trim();
 
             await _context.SaveChangesAsync(cancellationToken);
 

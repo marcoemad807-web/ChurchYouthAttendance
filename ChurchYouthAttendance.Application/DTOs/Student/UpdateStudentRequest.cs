@@ -1,7 +1,5 @@
-using ChurchYouthAttendance.Domain.Enum;
+﻿using ChurchYouthAttendance.Domain.Enum;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ChurchYouthAttendance.Application.DTOs.Student
 {
@@ -11,12 +9,12 @@ namespace ChurchYouthAttendance.Application.DTOs.Student
     public class UpdateStudentRequest
     {
         public string FullName { get; set; } = string.Empty;
-        public string Username { get; set; } = string.Empty; // اسم المستخدم بالإنجليزية (مثل: mina.adel) - مطلوب
+        public string? Username { get; set; }
         public string PhoneNumber { get; set; } = string.Empty;
-        public DateOnly DateOfBirth { get; set; }
-        public UserGender Gender { get; set; }
-        public string FatherOfConfession { get; set; } = string.Empty;
-        public int AcademicYear { get; set; }
-        public string College { get; set; } = string.Empty; // الكلية - مطلوبة
+        public DateOnly? DateOfBirth { get; set; }
+        public UserGender Gender { get; set; } = UserGender.Male;
+        public string? FatherOfConfession { get; set; }
+        public int AcademicYear { get; set; } = 1;
+        public string? College { get; set; }
     }
 }

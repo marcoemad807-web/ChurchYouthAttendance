@@ -29,7 +29,7 @@ namespace ChurchYouthAttendance.API.Controllers
             [FromQuery] int minConsecutiveAbsences = 2,
             CancellationToken cancellationToken = default)
         {
-            var list = await _followUpService.GetMissingStudentsAsync(academicYear, gender, minConsecutiveAbsences, cancellationToken);
+            var list = await _followUpService.GetMissingStudentsAsync(academicYear, gender, minConsecutiveAbsences, cancellationToken: cancellationToken);
             return Ok(list);
         }
 

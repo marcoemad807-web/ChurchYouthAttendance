@@ -1,4 +1,4 @@
-﻿using ChurchYouthAttendance.Application.DTOs.Student;
+using ChurchYouthAttendance.Application.DTOs.Student;
 using ChurchYouthAttendance.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -43,10 +43,36 @@ namespace ChurchYouthAttendance.API.Controllers
         }
 
         [HttpGet("my-class")]
-        public async Task<IActionResult> GetMyClass([FromQuery] int academicYear, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetMyClass(
+            [FromQuery] int? academicYear,
+            [FromQuery] string? academicYears,
+            [FromQuery] int? gender,
+            CancellationToken cancellationToken)
         {
-            var students = await _studentService.GetStudentsByYearAsync(academicYear, cancellationToken);
-            return Ok(students);
+            ChurchYouthAttendance.Domain.Enum.UserGender? userGender = (gender.HasValue && gender.Value > 0) ? (ChurchYouthAttendance.Domain.Enum.UserGender)gender.Value : null;
+
+            var yearsList = new List<int>();
+            if (!string.IsNullOrWhiteSpace(academicYears))
+            {
+                yearsList.AddRange(ChurchYouthAttendance.Domain.Entities.Servant.ParseAcademicYears(academicYears));
+            }
+            if (academicYear.HasValue && academicYear.Value > 0 && !yearsList.Contains(academicYear.Value))
+            {
+                yearsList.Add(academicYear.Value);
+            }
+
+            if (yearsList.Count > 1)
+            {
+                var students = await _studentService.GetStudentsByYearsAsync(yearsList, userGender, cancellationToken);
+                return Ok(students);
+            }
+            else if (yearsList.Count == 1)
+            {
+                var students = await _studentService.GetStudentsByYearAsync(yearsList[0], userGender, cancellationToken);
+                return Ok(students);
+            }
+
+            return Ok(new List<StudentDto>());
         }
 
         /// <summary>

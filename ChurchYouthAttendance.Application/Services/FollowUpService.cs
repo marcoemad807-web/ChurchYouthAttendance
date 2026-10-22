@@ -24,6 +24,7 @@ namespace ChurchYouthAttendance.Application.Services
             int? academicYear = null,
             UserGender? gender = null,
             int minConsecutiveAbsences = 2,
+            IEnumerable<int>? academicYears = null,
             CancellationToken cancellationToken = default)
         {
             if (minConsecutiveAbsences < 1)
@@ -44,7 +45,12 @@ namespace ChurchYouthAttendance.Application.Services
                 .AsNoTracking()
                 .AsQueryable();
 
-            if (academicYear.HasValue)
+            if (academicYears != null && academicYears.Any())
+            {
+                var yearsList = academicYears.ToList();
+                studentsQuery = studentsQuery.Where(s => yearsList.Contains(s.AcademicYear));
+            }
+            else if (academicYear.HasValue)
             {
                 studentsQuery = studentsQuery.Where(s => s.AcademicYear == academicYear.Value);
             }
@@ -115,6 +121,7 @@ namespace ChurchYouthAttendance.Application.Services
                         FullName = student.FullName,
                         PhoneNumber = student.PhoneNumber.Value,
                         AcademicYear = student.AcademicYear,
+                        Gender = (int)student.Gender,
                         College = student.College,
                         FatherOfConfession = student.FatherOfConfession,
                         ConsecutiveAbsenceWeeks = consecutiveAbsences,
@@ -152,12 +159,15 @@ namespace ChurchYouthAttendance.Application.Services
                     cancellationToken: cancellationToken);
             }
 
-            // خادم الفصل يرى شباب فصله ونفس نوعه
+            // خادم الفصل يرى شباب كل فصوله المسندة إليه ونفس نوعه
+            var assignedYears = servant.GetAssignedAcademicYearsList();
             return await GetMissingStudentsAsync(
-                academicYear: servant.AssignedAcademicYear,
-                gender: servant.Gender,
+                academicYear: null,
+                gender: servant.ClassGender switch { 1 => UserGender.Male, 2 => UserGender.Female, _ => null },
                 minConsecutiveAbsences: minConsecutiveAbsences,
+                academicYears: assignedYears,
                 cancellationToken: cancellationToken);
         }
     }
 }
+

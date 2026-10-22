@@ -16,6 +16,20 @@ namespace ChurchYouthAttendance.API.Hubs
         }
 
         /// <summary>
+        /// انضمام خادم إلى عدة مجموعات دفعات في نفس الوقت
+        /// </summary>
+        public async Task JoinYearGroups(System.Collections.Generic.IEnumerable<int> academicYears)
+        {
+            if (academicYears != null)
+            {
+                foreach (var year in academicYears)
+                {
+                    await Groups.AddToGroupAsync(Context.ConnectionId, GetYearGroupName(year));
+                }
+            }
+        }
+
+        /// <summary>
         /// مغادرة مجموعة الدفعة
         /// </summary>
         public async Task LeaveYearGroup(int academicYear)

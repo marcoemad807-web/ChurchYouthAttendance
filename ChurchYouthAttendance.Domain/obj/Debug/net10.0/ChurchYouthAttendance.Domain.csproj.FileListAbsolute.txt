@@ -10,3 +10,5 @@ C:\Users\Omega\source\repos\ChurchYouthAttendance\ChurchYouthAttendance.Domain\o
 C:\Users\Omega\source\repos\ChurchYouthAttendance\ChurchYouthAttendance.Domain\obj\Debug\net10.0\ChurchYouthAttendance.Domain.pdb
 C:\Users\Omega\source\repos\ChurchYouthAttendance\ChurchYouthAttendance.Domain\obj\Debug\net10.0\ref\ChurchYouthAttendance.Domain.dll
 C:\Users\Omega\source\repos\ChurchYouthAttendance\ChurchYouthAttendance.Domain\obj\Debug\net10.0\ChurchYouthAttendance.Domain.csproj.AssemblyReference.cache
+C:\Users\Omega\source\repos\ChurchYouthAttendance\ChurchYouthAttendance.Domain\obj\Debug\net10.0\ChurchYouthAttendance.Domain.sourcelink.json
+C:\Users\Omega\source\repos\ChurchYouthAttendance\ChurchYouthAttendance.Domain\obj\Debug\net10.0\ChurchYo.216946B8.Up2Date

@@ -11,6 +11,8 @@ namespace ChurchYouthAttendance.Application.Interfaces
         /// جلب شباب دفعة محددة (فصل الخادم) مع علامة صح لمن سجل في الأبلكيشن
         /// </summary>
         Task<List<StudentDto>> GetStudentsByYearAsync(int academicYear, CancellationToken cancellationToken = default);
+        Task<List<StudentDto>> GetStudentsByYearAsync(int academicYear, ChurchYouthAttendance.Domain.Enum.UserGender? gender, CancellationToken cancellationToken = default);
+        Task<List<StudentDto>> GetStudentsByYearsAsync(IEnumerable<int> academicYears, ChurchYouthAttendance.Domain.Enum.UserGender? gender = null, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// جلب جميع الفصول مقسمة بالدفعات وإحصائيات المسجلين (خاص بأمين الخدمة)

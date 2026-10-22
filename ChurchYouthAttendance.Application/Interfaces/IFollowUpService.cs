@@ -16,6 +16,7 @@ namespace ChurchYouthAttendance.Application.Interfaces
             int? academicYear = null,
             UserGender? gender = null,
             int minConsecutiveAbsences = 2,
+            IEnumerable<int>? academicYears = null,
             CancellationToken cancellationToken = default);
 
         /// <summary>

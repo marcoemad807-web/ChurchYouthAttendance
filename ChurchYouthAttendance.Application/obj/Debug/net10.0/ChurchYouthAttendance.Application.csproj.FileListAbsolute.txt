@@ -13,3 +13,4 @@ C:\Users\Omega\source\repos\ChurchYouthAttendance\ChurchYouthAttendance.Applicat
 C:\Users\Omega\source\repos\ChurchYouthAttendance\ChurchYouthAttendance.Application\obj\Debug\net10.0\refint\ChurchYouthAttendance.Application.dll
 C:\Users\Omega\source\repos\ChurchYouthAttendance\ChurchYouthAttendance.Application\obj\Debug\net10.0\ChurchYouthAttendance.Application.pdb
 C:\Users\Omega\source\repos\ChurchYouthAttendance\ChurchYouthAttendance.Application\obj\Debug\net10.0\ref\ChurchYouthAttendance.Application.dll
+C:\Users\Omega\source\repos\ChurchYouthAttendance\ChurchYouthAttendance.Application\obj\Debug\net10.0\ChurchYouthAttendance.Application.sourcelink.json

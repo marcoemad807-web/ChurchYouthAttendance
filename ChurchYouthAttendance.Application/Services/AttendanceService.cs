@@ -1,4 +1,4 @@
-﻿using ChurchYouthAttendance.Application.Common.Interfaces;
+using ChurchYouthAttendance.Application.Common.Interfaces;
 using ChurchYouthAttendance.Application.DTOs.Attendance;
 using ChurchYouthAttendance.Application.Interfaces;
 using ChurchYouthAttendance.Domain.Entities;
@@ -390,28 +390,43 @@ namespace ChurchYouthAttendance.Application.Services
             if (servant == null)
                 throw new KeyNotFoundException("الخادم المحدد غير موجود.");
 
-            int? effectiveAcademicYear;
+            List<int>? effectiveAcademicYears = null;
             Domain.Enum.UserGender? effectiveGender = request.Gender;
             string scopeDescription;
 
             if (servant.Role == Domain.Enum.UserRole.Admin)
             {
                 // أمين الخدمة العام: يحدد الدفعة أو يتركها null لكل الدفعات، ويحدد النوع أو يتركه للكل
-                effectiveAcademicYear = request.AcademicYear;
-                var yearText = effectiveAcademicYear.HasValue ? GetYearName(effectiveAcademicYear.Value) : "جميع الفصول";
+                if (request.AcademicYear.HasValue)
+                    effectiveAcademicYears = new List<int> { request.AcademicYear.Value };
+                var yearText = request.AcademicYear.HasValue ? GetYearName(request.AcademicYear.Value) : "جميع الفصول";
                 var genderText = effectiveGender.HasValue ? (effectiveGender == Domain.Enum.UserGender.Male ? "بنين فقط" : "بنات فقط") : "بنين وبنات";
                 scopeDescription = $"{yearText} - {genderText}";
             }
             else
             {
-                // خادم الفصل: مقيّد بدفعته المسندة إليه فقط إجبارياً
-                if (!servant.AssignedAcademicYear.HasValue)
-                    throw new InvalidOperationException("هذا الخادم غير مسند إليه فصل دراسي محدد.");
+                // خادم الفصول: مقيّد بالدفعات المسندة إليه ونوع الفصل
+                var assignedYears = servant.GetAssignedAcademicYearsList();
+                if (assignedYears.Count == 0)
+                    throw new InvalidOperationException("هذا الخادم غير مسند إليه أي فصول دراسية.");
 
-                effectiveAcademicYear = servant.AssignedAcademicYear.Value;
-                var yearText = GetYearName(effectiveAcademicYear.Value);
+                if (request.AcademicYear.HasValue)
+                {
+                    if (!assignedYears.Contains(request.AcademicYear.Value))
+                        throw new InvalidOperationException("لا يمكنك استخراج تقرير لدفعة غير مسندة إليك.");
+                    effectiveAcademicYears = new List<int> { request.AcademicYear.Value };
+                }
+                else
+                {
+                    effectiveAcademicYears = assignedYears;
+                }
+
+                if (!effectiveGender.HasValue && servant.ClassGender > 0)
+                    effectiveGender = servant.ClassGender == 1 ? Domain.Enum.UserGender.Male : Domain.Enum.UserGender.Female;
+
+                var yearsText = string.Join(" و", effectiveAcademicYears.Select(GetYearName));
                 var genderText = effectiveGender.HasValue ? (effectiveGender == Domain.Enum.UserGender.Male ? "بنين فقط" : "بنات فقط") : "بنين وبنات";
-                scopeDescription = $"{yearText} (فصل الخادم المسؤول) - {genderText}";
+                scopeDescription = $"{yearsText} (فصول الخادم المسؤول) - {genderText}";
             }
 
             // 2. جلب الاجتماعات التي تقع في هذه الفترة الزمنية
@@ -423,9 +438,9 @@ namespace ChurchYouthAttendance.Application.Services
             // 3. جلب الشباب الواقعين في نطاق التقرير
             var studentsQuery = _context.Students.AsNoTracking().AsQueryable();
 
-            if (effectiveAcademicYear.HasValue)
+            if (effectiveAcademicYears != null && effectiveAcademicYears.Count > 0)
             {
-                studentsQuery = studentsQuery.Where(s => s.AcademicYear == effectiveAcademicYear.Value);
+                studentsQuery = studentsQuery.Where(s => effectiveAcademicYears.Contains(s.AcademicYear));
             }
 
             if (effectiveGender.HasValue)

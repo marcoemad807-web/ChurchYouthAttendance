@@ -8,16 +8,20 @@ namespace ChurchYouthAttendance.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Servant> builder)
         {
-            // جدول فرعي خاص بالخدام وأمناء الخدمة ضمن استراتيجية TPT
             builder.ToTable("Servants");
 
             builder.Property(s => s.AssignedAcademicYear)
                 .IsRequired(false);
 
-            // استبعاد الخاصية المحسوبة IsGeneralLeader حتى لا يحاول EF Core إنشاء عمود لها
+            builder.Property(s => s.AssignedAcademicYears)
+                .HasMaxLength(100)
+                .IsRequired(false);
+
+            builder.Property(s => s.ClassGender)
+                .HasDefaultValue(0);
+
             builder.Ignore(s => s.IsGeneralLeader);
 
-            // فهرس للبحث السريع باسم الخادم
             builder.HasIndex(s => s.FullName);
         }
     }
